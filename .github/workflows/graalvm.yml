@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: actions/cache@v2
         with:
           path: |
@@ -13,12 +13,12 @@ jobs:
             ~/.m2/repository
           key: ${{ runner.os }}-gradle-test-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle-test-
-      - name: Setup GraalVM CE
-        uses: DeLaGuardo/setup-graalvm@3.1
+      - uses: graalvm/setup-graalvm@v1
         with:
-          graalvm-version: 22.3.0.java21
-      - name: Install Native Image
-        run: gu install native-image
+          java-version: '21'
+          distribution: 'graalvm'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          native-image-job-reports: 'true'
       - name: Docker login
         uses: docker/login-action@v1
         with:
