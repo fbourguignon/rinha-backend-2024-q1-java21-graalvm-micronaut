@@ -49,7 +49,6 @@ public class ClientController {
                 new BalanceResponse(client.balance(), LocalDateTime.now(), client.limit()),
                 transactions
                         .stream()
-                        .sorted(Comparator.comparing(Transaction::createdAt).reversed())
                         .map(transaction -> new TransactionResponse(transaction.amount(),
                                 transaction.type().name(),transaction.description(), transaction.createdAt()))
                         .collect(Collectors.toList())
