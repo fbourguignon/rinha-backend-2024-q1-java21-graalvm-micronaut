@@ -10,6 +10,7 @@
 - [x] [Micronaut Flyway](https://micronaut-projects.github.io/micronaut-flyway/latest/guide/)
 - [x] [Micronaut Rest Assured](https://guides.micronaut.io/latest/micronaut-rest-assured-gradle-java.html)
 - [x] [Postgres](https://www.postgresql.org/)
+- [x] [GraalVM](https://www.graalvm.org/)
 - [x] Java 21
 - [x] Docker
 
